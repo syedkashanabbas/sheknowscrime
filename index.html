@@ -1,48 +1,296 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth" style="font-family: 'Elms Sans', sans-serif;">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar Example</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creator X</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- GSAP Animation -->
+   <script src="./assets/js/hero-sections.js" defer></script>
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <!-- TailwindCSS CDN -->
+  <style>
+    /* Extra dark background */
+    body {
+      background-color: #0d0d0d;
+      color: #e6e6e6;
+      font-family: 'Elms Sans', sans-serif;
+    }
+    /* Custom scrollbar for dark */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #434343;
+      border-radius: 5px;
+    }
+    
+    /* Custom rounded corners for thumbnails */
+    .thumbnail-rounded {
+      border-radius: 16px;
+    }
+    /* Add these styles */
+    .video-scroll-container {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+    }
 
+    .video-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
 
-    <!-- GSAP Library -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    /* Ensure smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body class="bg-gray-100">
-    <!-- Navbar Section -->
-    <nav class="bg-black p-4 fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-5xl z-50">
-        <div class="flex justify-between items-center mx-auto">
-            <!-- Menu Toggle Button (Only visible on mobile) -->
-            <button class="text-white text-2xl md:hidden" id="menu-toggle">
-                <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                <span class="block w-6 h-0.5 bg-white mb-1"></span>
-                <span class="block w-6 h-0.5 bg-white mb-1"></span>
-            </button>
+<body class="min-h-screen flex flex-col">
 
-            <!-- Logo -->
-            <div class="text-white font-semibold text-2xl">OSMO</div>
-
-            <!-- Auth Buttons -->
-            <div class="space-x-4">
-                <a href="#" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Join</a>
-                <a href="#" class="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700">Login</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content (For demonstration) -->
-    <div class="container mx-auto py-12">
-        <!-- Content Goes Here -->
+  <!-- NAVBAR -->
+  <nav class="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 lg:py-6 w-full">
+    <!-- Creator X logo on the left -->
+    <div class="flex items-center space-x-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25m0 0L19.5 8.25m-3.75-3L12 5.25m3.75 3v9m-7.5-9a2.25 2.25 0 00-2.25 2.25v7.5C7.5 15.216 8.548 16.5 10.5 16.5h2.25" />
+      </svg>
+      <span class="font-semibold text-lg sm:text-xl text-white select-none">Creator X</span>
     </div>
 
-    <!-- Custom JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <!-- Navigation links on the right -->
+    <ul class="flex items-center space-x-4 sm:space-x-6 text-sm text-white/70 font-light">
+      <li><a href="#" class="hover:text-white transition hidden sm:inline">Home</a></li>
+      <li><a href="#" class="hover:text-white transition hidden sm:inline">About</a></li>
+      <li><a href="#" class="hover:text-white transition hidden md:inline">Blog</a></li>
+      <li><a href="#" class="hover:text-white transition hidden lg:inline">Products</a></li>
+      <li class="relative group cursor-pointer hidden lg:inline">
+        <span class="hover:text-white transition flex items-center gap-1">Pages 
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </span>
+        <!-- Dropdown - hidden for now -->
+      </li>
+      <!-- Mobile menu button -->
+      <li class="sm:hidden">
+        <button id="mobileMenuButton" class="text-white/70 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </li>
+    </ul>
+
+    <!-- Cart icon -->
+    <div class="relative cursor-pointer ml-2 sm:ml-4">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.344 1.378c.04.16.14.288.28.367L8.68 7.5H18a2 2 0 001.995-1.85L20 7.25a2 2 0 00-2-2H6.21l-.21-1.05A2 2 0 004 3H3z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16 13a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+      <span class="absolute -top-1 -right-1 bg-red-600 rounded-full text-xs px-1 font-semibold select-none">0</span>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu (hidden by default) -->
+  <div id="mobileMenu" class="hidden bg-black/90 py-4 px-6 absolute top-16 left-0 right-0 z-10">
+    <ul class="flex flex-col space-y-4 text-white/70 font-light">
+      <li><a href="#" class="hover:text-white transition block py-2">Home</a></li>
+      <li><a href="#" class="hover:text-white transition block py-2">About</a></li>
+      <li><a href="#" class="hover:text-white transition block py-2">Blog</a></li>
+      <li><a href="#" class="hover:text-white transition block py-2">Products</a></li>
+      <li><a href="#" class="hover:text-white transition block py-2">Pages</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="w-full flex flex-col gap-6 sm:gap-8 px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
+
+    <!-- Creator info + subscribe button -->
+    <section class="w-full max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 sm:gap-6 mt-2 sm:mt-4">
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <!-- Avatar -->
+        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden shrink-0">
+          <img
+            src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
+            alt="John Carter avatar"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div>
+          <h2 class="text-white font-semibold text-base sm:text-lg leading-tight">John Carter <span class="ml-2 sm:ml-3 text-xs bg-gray-700 rounded-full uppercase font-semibold px-2 sm:px-3 py-1 select-none">4.8M subscribers</span></h2>
+          <p class="mt-1 text-gray-300 max-w-xs text-xs sm:text-sm font-light leading-snug">
+            I create videos about technology, gadgets, cameras, and much more.
+          </p>
+        </div>
+      </div>
+
+      <button class="bg-red-600 hover:bg-red-700 transition text-white rounded-lg px-4 sm:px-6 py-2 sm:py-3 font-semibold w-full sm:w-40 max-w-full text-center mt-2 sm:mt-0">Subscribe</button>
+    </section>
+
+    <!-- Video Container for ScrollTrigger -->
+    <div class="video-scroll-container">
+
+    <!-- First Video Section -->
+    <section class="video-section w-full max-w-6xl mx-auto relative group thumbnail-rounded overflow-hidden" data-video="1">
+        <img 
+        src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba13ca29ea71d22e67745_image-9-video-x-template.jpg" 
+        alt="Video thumbnail" 
+        class="w-full h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] object-cover thumbnail-rounded transition-transform duration-300 group-hover:scale-105 video-image"
+        />
+
+        <!-- Full Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent thumbnail-rounded"></div>
+
+        <!-- Play Button center -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-8 sm:h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        </div>
+
+        <!-- Featured Tag (top-right) -->
+        <div class="absolute top-3 sm:top-4 right-3 sm:right-4 bg-black/80 text-white uppercase text-xs py-1 px-2 sm:px-3 rounded select-none font-semibold z-10">
+        Featured
+        </div>
+
+        <!-- Bottom info -->
+        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center text-white space-x-3 sm:space-x-4 rounded-md px-3 sm:px-4 py-2 sm:py-3 z-10">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 border-2 border-white/70">
+            <img
+            src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
+            alt="John Carter avatar small"
+            class="w-full h-full object-cover"
+            />
+        </div>
+        <div class="flex-1">
+            <h3 class="font-bold text-white text-lg sm:text-xl md:text-2xl leading-tight">
+            iOS 15 is now released: Top 5 new features!
+            </h3>
+            <div class="flex space-x-2 mt-2 text-gray-300 text-sm sm:text-base font-medium select-none">
+            <span>12 min</span>
+            <span>—</span>
+            <span>1/9/22</span>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Second Video Section -->
+    <section class="video-section w-full max-w-6xl mx-auto relative group thumbnail-rounded overflow-hidden" data-video="2">
+        <img 
+        src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba0b5b3146f983b551427_image-8-video-x-template.jpg" 
+        alt="Video thumbnail" 
+        class="w-full h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] object-cover thumbnail-rounded transition-transform duration-300 group-hover:scale-105 video-image"
+        />
+
+        <!-- Full Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent thumbnail-rounded"></div>
+
+        <!-- Play Button center -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-8 sm:h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        </div>
+
+        <!-- Bottom info -->
+        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center text-white space-x-3 sm:space-x-4 rounded-md px-3 sm:px-4 py-2 sm:py-3 z-10">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 border-2 border-white/70">
+            <img
+            src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
+            alt="John Carter avatar small"
+            class="w-full h-full object-cover"
+            />
+        </div>
+        <div class="flex-1">
+            <h3 class="font-bold text-white text-lg sm:text-xl md:text-2xl leading-tight">
+            Google Home 1st gen: Still worth buying?
+            </h3>
+            <div class="flex space-x-2 mt-2 text-gray-300 text-sm sm:text-base font-medium select-none">
+            <span>8 MIN</span>
+            <span>—</span>
+            <span>1/9/2022</span>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Third Video Section -->
+    <section class="video-section w-full max-w-6xl mx-auto relative group thumbnail-rounded overflow-hidden" data-video="3">
+        <img 
+        src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg" 
+        alt="Video thumbnail" 
+        class="w-full h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] object-cover thumbnail-rounded transition-transform duration-300 group-hover:scale-105 video-image"
+        />
+
+        <!-- Full Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent thumbnail-rounded"></div>
+
+        <!-- Play Button center -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-8 sm:h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        </div>
+
+        <!-- Bottom info -->
+        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center text-white space-x-3 sm:space-x-4 rounded-md px-3 sm:px-4 py-2 sm:py-3 z-10">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 border-2 border-white/70">
+            <img
+            src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
+            alt="John Carter avatar small"
+            class="w-full h-full object-cover"
+            />
+        </div>
+        <div class="flex-1">
+            <h3 class="font-bold text-white text-lg sm:text-xl md:text-2xl leading-tight">
+            Unboxing the new iPad Pro M1.
+            </h3>
+            <div class="flex space-x-2 mt-2 text-gray-300 text-sm sm:text-base font-medium select-none">
+            <span>9 MIN</span>
+            <span>—</span>
+            <span>1/9/2022</span>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    </div>
+  </main>
+
+
+  <script>
+    window.addEventListener('load', () => {
+      gsap.from('#videoThumb', {
+        duration: 1.2,
+        opacity: 0,
+        y: 50,
+        ease: 'power3.out'
+      });
+    });
+    
+    // Mobile menu toggle
+    document.getElementById('mobileMenuButton').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
 </body>
 </html>
