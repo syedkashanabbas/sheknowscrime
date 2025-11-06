@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Example</title>
+
+    <!-- TailwindCSS CDN -->
+
+
+    <!-- GSAP Library -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar Section -->
+    <nav class="bg-black p-4 fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-5xl z-50">
+        <div class="flex justify-between items-center mx-auto">
+            <!-- Menu Toggle Button (Only visible on mobile) -->
+            <button class="text-white text-2xl md:hidden" id="menu-toggle">
+                <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                <span class="block w-6 h-0.5 bg-white mb-1"></span>
+                <span class="block w-6 h-0.5 bg-white mb-1"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="text-white font-semibold text-2xl">OSMO</div>
+
+            <!-- Auth Buttons -->
+            <div class="space-x-4">
+                <a href="#" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Join</a>
+                <a href="#" class="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content (For demonstration) -->
+    <div class="container mx-auto py-12">
+        <!-- Content Goes Here -->
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
