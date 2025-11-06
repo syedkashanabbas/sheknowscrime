@@ -12,11 +12,9 @@
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- GSAP Animation -->
-   <script src="./assets/js/hero-sections.js" defer></script>
+
   <!-- GSAP CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <style>
     /* Extra dark background */
@@ -37,25 +35,6 @@
     /* Custom rounded corners for thumbnails */
     .thumbnail-rounded {
       border-radius: 16px;
-    }
-    /* Add these styles */
-    .video-scroll-container {
-        position: relative;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    .video-section {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-    }
-
-    /* Ensure smooth scrolling */
-    html {
-        scroll-behavior: smooth;
     }
   </style>
 </head>
@@ -143,138 +122,150 @@
       <button class="bg-red-600 hover:bg-red-700 transition text-white rounded-lg px-4 sm:px-6 py-2 sm:py-3 font-semibold w-full sm:w-40 max-w-full text-center mt-2 sm:mt-0">Subscribe</button>
     </section>
 
-    <!-- Video Container for ScrollTrigger -->
-    <div class="video-scroll-container">
+    <!-- Video Thumbnail -->
+ <section class="w-full max-w-6xl mx-auto relative group thumbnail-rounded overflow-hidden">
+  <img 
+    src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba13ca29ea71d22e67745_image-9-video-x-template.jpg" 
+    alt="Video thumbnail" 
+    class="w-full h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] object-cover thumbnail-rounded transition-transform duration-300 group-hover:scale-105"
+    id="videoThumb"
+  />
 
-    <!-- First Video Section -->
-    <section class="video-section w-full max-w-6xl mx-auto relative group thumbnail-rounded overflow-hidden" data-video="1">
-        <img 
-        src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba13ca29ea71d22e67745_image-9-video-x-template.jpg" 
-        alt="Video thumbnail" 
-        class="w-full h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] object-cover thumbnail-rounded transition-transform duration-300 group-hover:scale-105 video-image"
-        />
+  <!-- Full Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent thumbnail-rounded"></div>
 
-        <!-- Full Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent thumbnail-rounded"></div>
-
-        <!-- Play Button center -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-8 sm:h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        </div>
-
-        <!-- Featured Tag (top-right) -->
-        <div class="absolute top-3 sm:top-4 right-3 sm:right-4 bg-black/80 text-white uppercase text-xs py-1 px-2 sm:px-3 rounded select-none font-semibold z-10">
-        Featured
-        </div>
-
-        <!-- Bottom info -->
-        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center text-white space-x-3 sm:space-x-4 rounded-md px-3 sm:px-4 py-2 sm:py-3 z-10">
-        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 border-2 border-white/70">
-            <img
-            src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
-            alt="John Carter avatar small"
-            class="w-full h-full object-cover"
-            />
-        </div>
-        <div class="flex-1">
-            <h3 class="font-bold text-white text-lg sm:text-xl md:text-2xl leading-tight">
-            iOS 15 is now released: Top 5 new features!
-            </h3>
-            <div class="flex space-x-2 mt-2 text-gray-300 text-sm sm:text-base font-medium select-none">
-            <span>12 min</span>
-            <span>—</span>
-            <span>1/9/22</span>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- Second Video Section -->
-    <section class="video-section w-full max-w-6xl mx-auto relative group thumbnail-rounded overflow-hidden" data-video="2">
-        <img 
-        src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba0b5b3146f983b551427_image-8-video-x-template.jpg" 
-        alt="Video thumbnail" 
-        class="w-full h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] object-cover thumbnail-rounded transition-transform duration-300 group-hover:scale-105 video-image"
-        />
-
-        <!-- Full Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent thumbnail-rounded"></div>
-
-        <!-- Play Button center -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-8 sm:h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        </div>
-
-        <!-- Bottom info -->
-        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center text-white space-x-3 sm:space-x-4 rounded-md px-3 sm:px-4 py-2 sm:py-3 z-10">
-        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 border-2 border-white/70">
-            <img
-            src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
-            alt="John Carter avatar small"
-            class="w-full h-full object-cover"
-            />
-        </div>
-        <div class="flex-1">
-            <h3 class="font-bold text-white text-lg sm:text-xl md:text-2xl leading-tight">
-            Google Home 1st gen: Still worth buying?
-            </h3>
-            <div class="flex space-x-2 mt-2 text-gray-300 text-sm sm:text-base font-medium select-none">
-            <span>8 MIN</span>
-            <span>—</span>
-            <span>1/9/2022</span>
-            </div>
-        </div>
-        </div>
-    </section>
-
-    <!-- Third Video Section -->
-    <section class="video-section w-full max-w-6xl mx-auto relative group thumbnail-rounded overflow-hidden" data-video="3">
-        <img 
-        src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg" 
-        alt="Video thumbnail" 
-        class="w-full h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] object-cover thumbnail-rounded transition-transform duration-300 group-hover:scale-105 video-image"
-        />
-
-        <!-- Full Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent thumbnail-rounded"></div>
-
-        <!-- Play Button center -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-8 sm:h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        </div>
-        </div>
-
-        <!-- Bottom info -->
-        <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center text-white space-x-3 sm:space-x-4 rounded-md px-3 sm:px-4 py-2 sm:py-3 z-10">
-        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 border-2 border-white/70">
-            <img
-            src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
-            alt="John Carter avatar small"
-            class="w-full h-full object-cover"
-            />
-        </div>
-        <div class="flex-1">
-            <h3 class="font-bold text-white text-lg sm:text-xl md:text-2xl leading-tight">
-            Unboxing the new iPad Pro M1.
-            </h3>
-            <div class="flex space-x-2 mt-2 text-gray-300 text-sm sm:text-base font-medium select-none">
-            <span>9 MIN</span>
-            <span>—</span>
-            <span>1/9/2022</span>
-            </div>
-        </div>
-        </div>
-    </section>
-
+  <!-- Play Button center -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-8 sm:h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
     </div>
+  </div>
+
+  <!-- Featured Tag (top-right) -->
+  <div class="absolute top-3 sm:top-4 right-3 sm:right-4 bg-black/80 text-white uppercase text-xs py-1 px-2 sm:px-3 rounded select-none font-semibold z-10">
+    Featured
+  </div>
+
+  <!-- Bottom info -->
+  <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center text-white space-x-3 sm:space-x-4 rounded-md px-3 sm:px-4 py-2 sm:py-3 z-10">
+
+    <!-- avatar small -->
+    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 border-2 border-white/70">
+      <img
+        src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
+        alt="John Carter avatar small"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="flex-1">
+      <h3 class="font-bold text-white text-lg sm:text-xl md:text-2xl leading-tight">
+        iOS 15 is now released: Top 5 new features!
+      </h3>
+
+      <div class="flex space-x-2 mt-2 text-gray-300 text-sm sm:text-base font-medium select-none">
+        <span>12 min</span>
+        <span>—</span>
+        <span>1/9/22</span>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Second Video Section -->
+<section class="w-full max-w-6xl mx-auto relative group thumbnail-rounded overflow-hidden mt-8">
+  <img 
+    src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba0b5b3146f983b551427_image-8-video-x-template.jpg" 
+    alt="Video thumbnail" 
+    class="w-full h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] object-cover thumbnail-rounded transition-transform duration-300 group-hover:scale-105"
+  />
+
+  <!-- Full Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent thumbnail-rounded"></div>
+
+  <!-- Play Button center -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-8 sm:h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+  </div>
+
+  <!-- Bottom info -->
+  <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center text-white space-x-3 sm:space-x-4 rounded-md px-3 sm:px-4 py-2 sm:py-3 z-10">
+
+    <!-- avatar small -->
+    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 border-2 border-white/70">
+      <img
+        src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
+        alt="John Carter avatar small"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="flex-1">
+      <h3 class="font-bold text-white text-lg sm:text-xl md:text-2xl leading-tight">
+        Google Home 1st gen: Still worth buying?
+      </h3>
+
+      <div class="flex space-x-2 mt-2 text-gray-300 text-sm sm:text-base font-medium select-none">
+        <span>8 MIN</span>
+        <span>—</span>
+        <span>1/9/2022</span>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- Third Video Section -->
+<section class="w-full max-w-6xl mx-auto relative group thumbnail-rounded overflow-hidden mt-8">
+  <img 
+    src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg" 
+    alt="Video thumbnail" 
+    class="w-full h-72 sm:h-96 md:h-[28rem] lg:h-[32rem] object-cover thumbnail-rounded transition-transform duration-300 group-hover:scale-105"
+  />
+
+  <!-- Full Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent thumbnail-rounded"></div>
+
+  <!-- Play Button center -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-8 sm:h-8 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+  </div>
+
+  <!-- Bottom info -->
+  <div class="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center text-white space-x-3 sm:space-x-4 rounded-md px-3 sm:px-4 py-2 sm:py-3 z-10">
+
+    <!-- avatar small -->
+    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden shrink-0 border-2 border-white/70">
+      <img
+        src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
+        alt="John Carter avatar small"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="flex-1">
+      <h3 class="font-bold text-white text-lg sm:text-xl md:text-2xl leading-tight">
+        Unboxing the new iPad Pro M1.
+      </h3>
+
+      <div class="flex space-x-2 mt-2 text-gray-300 text-sm sm:text-base font-medium select-none">
+        <span>9 MIN</span>
+        <span>—</span>
+        <span>1/9/2022</span>
+      </div>
+    </div>
+    
+  </div>
+</section>
+    
   </main>
 
-
+  <!-- GSAP Animation -->
   <script>
     window.addEventListener('load', () => {
       gsap.from('#videoThumb', {
