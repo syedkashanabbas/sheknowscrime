@@ -85,6 +85,62 @@
   <!-- MAIN CONTENT -->
   <main class="w-full flex flex-col gap-6 sm:gap-8 px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
 
+<section class=" text-center py-20 px-6 overflow-hidden">
+  <div class="max-w-4xl mx-auto">
+    <!-- Avatar -->
+    <div class="flex justify-center mb-6">
+      <img
+        src="https://cdn.prod.website-files.com/613b673e4173314657551861/613b873ad93b756182fbf8a9_image-about-avatar-video-x-template.jpg"
+        alt="Creator"
+        class="w-28 h-28 rounded-full object-cover border-4 border-[#1f1f1f]"
+      />
+    </div>
+
+    <!-- Title and Description -->
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 text-white">
+      My name is John. I’m 26 and I enjoy making videos.
+    </h2>
+    <p class="text-gray-400 max-w-2xl mx-auto mb-6 text-sm sm:text-base leading-relaxed">
+      Lorem ipsum dolor sit amet consectetur adipiscing elit sit enim sed non nisi, ut ultrices molestie nisl purus ut pellentesque quam urna.
+    </p>
+
+    <!-- Subscribe Button -->
+    <button class="bg-red-600 hover:bg-red-700 transition text-white font-semibold rounded-lg px-6 py-3">
+      Subscribe to my channel
+    </button>
+
+    <!-- Social Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+      <!-- YouTube -->
+      <div class="bg-[#161616] rounded-2xl p-6 flex flex-col items-center">
+        <img src="https://cdn.prod.website-files.com/613b673e4173314657551861/613fa1100482faf0c46c271b_icon-1-achievements--about-hero-video-x-template.svg" alt="YouTube" class="w-10 h-10 mb-3 rounded-full">
+        <p class="text-2xl font-semibold text-white">4.2M</p>
+        <p class="text-gray-400 text-sm">YouTube subscribers</p>
+      </div>
+
+      <!-- Facebook -->
+      <div class="bg-[#161616] rounded-2xl p-6 flex flex-col items-center">
+        <img src="https://cdn.prod.website-files.com/613b673e4173314657551861/613fa1108c230038f050f4cf_icon-2-achievements--about-hero-video-x-template.svg" alt="Facebook" class="w-10 h-10 mb-3 rounded-full">
+        <p class="text-2xl font-semibold text-white">2.2M</p>
+        <p class="text-gray-400 text-sm">Facebook followers</p>
+      </div>
+
+      <!-- Twitter -->
+      <div class="bg-[#161616] rounded-2xl p-6 flex flex-col items-center">
+        <img src="https://cdn.prod.website-files.com/613b673e4173314657551861/613fa1105861735464460933_icon-3-achievements--about-hero-video-x-template.svg" alt="Twitter" class="w-10 h-10 mb-3 rounded-full">
+        <p class="text-2xl font-semibold text-white">1.1M</p>
+        <p class="text-gray-400 text-sm">Twitter followers</p>
+      </div>
+
+      <!-- Instagram -->
+      <div class="bg-[#161616] rounded-2xl p-6 flex flex-col items-center">
+        <img src="https://cdn.prod.website-files.com/613b673e4173314657551861/613fa11085f1413a2650e3d4_icon-4-achievements--about-hero-video-x-template.svg" alt="Instagram" class="w-10 h-10 mb-3 rounded-full">
+        <p class="text-2xl font-semibold text-white">1.8M</p>
+        <p class="text-gray-400 text-sm">Instagram followers</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     
 
@@ -114,6 +170,39 @@
 
     // Animate cart icon
     tl.from("nav .relative.cursor-pointer", { opacity: 0, scale: 0.8 }, "-=0.4");
+  });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+  gsap.set("section", { scale: 0, borderRadius: "50%", opacity: 0, transformOrigin: "center center" });
+
+  ScrollTrigger.create({
+    trigger: "section",
+    start: "top 85%",
+    once: true,
+    onEnter: () => {
+      const tl = gsap.timeline({ defaults: { duration: 1, ease: "bounce.out" } });
+
+      // Expand the section
+      tl.to("section", { scale: 1, borderRadius: "0%", opacity: 1, duration: 1.2, ease: "elastic.out(1, 0.5)" });
+
+      // Avatar pop
+      tl.from("section img[alt='Creator']", { scale: 0, opacity: 0, ease: "back.out(2)" }, "-=0.4");
+
+      // Text fade up
+      tl.from("section h2, section p", { y: 40, opacity: 0, stagger: 0.15, ease: "power3.out" }, "-=0.2");
+
+      // Button bounce in
+      tl.from("section button", { scale: 0.6, opacity: 0, ease: "elastic.out(1, 0.4)" }, "-=0.2");
+
+      // Social cards rise in sequence
+      tl.from("section .grid > div", {
+        y: 60,
+        opacity: 0,
+        stagger: 0.15,
+        ease: "back.out(1.5)"
+      }, "-=0.1");
+    }
   });
     // Mobile menu toggle
  const mobileMenuButton = document.getElementById('mobileMenuButton');
