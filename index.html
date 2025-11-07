@@ -184,82 +184,204 @@
         </div>
     </div>
    
-</section>
-<div class="flex justify-center">
-  <div id="cinematic-line" class="border-b-2 border-white border-opacity-35 max-w-5xl w-full scale-x-0 origin-center"></div>
-</div>
-
-<section class="popular-playlists  py-16 px-6">
-  <div class="max-w-6xl mx-auto">
-    <div class="flex items-center justify-between mb-8">
-      <h2 class="text-2xl font-semibold">Popular playlists</h2>
-      <div class="flex space-x-3">
-        <button id="prevBtn" class="p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 transition">
-          <span>&larr;</span>
-        </button>
-        <button id="nextBtn" class="p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 transition">
-          <span>&rarr;</span>
-        </button>
-      </div>
+    </section>
+    <!-- Cinematic Line -->
+    <div class="flex justify-center">
+    <div id="cinematic-line" class="border-b-2 border-white border-opacity-35 max-w-5xl w-full scale-x-0 origin-center"></div>
+    </div>
+    <section class="py-5 mx-auto max-w-6xl    overflow-hidden">
+  <div class="">
+    <div class="flex items-center justify-between mb-10">
+      <h2 class="text-2xl font-semibold">Latest videos</h2>
+      <a href="#" class="text-sm text-gray-300 hover:text-white transition">Browse more videos →</a>
     </div>
 
-    <div id="scrollContainer" class="flex space-x-6 overflow-x-auto scroll-smooth no-scrollbar">
-      <!-- Card -->
-      <div class="min-w-[250px] md:min-w-[280px] flex-shrink-0 rounded-2xl overflow-hidden relative group bg-neutral-900">
-        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg"
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Video Card -->
+      <div class="group relative rounded-2xl overflow-hidden bg-neutral-900">
+        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba0b5b3146f983b551427_image-8-video-x-template.jpg" 
+             alt="Video thumbnail" 
              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-60 transition-all"></div>
+        <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-20 p-4 rounded-full text-3xl text-white group-hover:bg-opacity-40 transition-all duration-300">
+          ▶
+        </button>
         <div class="absolute bottom-0 p-4">
-          <h3 class="text-lg font-semibold">Smartphones</h3>
-          <p class="text-sm text-gray-300">PLAYLIST — 24 VIDEOS</p>
+          <h3 class="text-lg font-semibold">iPhone 11: 6 months later review</h3>
+          <div class="text-sm text-gray-400 flex items-center space-x-4 mt-1">
+            <span>⏱ 18 MIN</span>
+            <span>📅 1/9/2022</span>
+          </div>
         </div>
       </div>
 
-      <!-- Repeat -->
-      <div class="min-w-[250px] md:min-w-[280px] flex-shrink-0 rounded-2xl overflow-hidden relative group bg-neutral-900">
-        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba0b5b3146f983b551427_image-8-video-x-template.jpg"
+      <!-- Repeat Cards -->
+      <div class="group relative rounded-2xl overflow-hidden bg-neutral-900">
+        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg" 
+             alt="Video thumbnail" 
              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-60 transition-all"></div>
+        <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-20 p-4 rounded-full text-3xl text-white group-hover:bg-opacity-40 transition-all duration-300">
+          ▶
+        </button>
         <div class="absolute bottom-0 p-4">
-          <h3 class="text-lg font-semibold">Tablets</h3>
-          <p class="text-sm text-gray-300">PLAYLIST — 8 VIDEOS</p>
+          <h3 class="text-lg font-semibold">iPad Pro M1: The beast unleashed</h3>
+          <div class="text-sm text-gray-400 flex items-center space-x-4 mt-1">
+            <span>⏱ 10 MIN</span>
+            <span>📅 1/9/2022</span>
+          </div>
         </div>
       </div>
 
-      <!-- More copies -->
-      <div class="min-w-[250px] md:min-w-[280px] flex-shrink-0 rounded-2xl overflow-hidden relative group bg-neutral-900">
-        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg"
+      <!-- Add more cards below by reusing the same structure -->
+      <div class="group relative rounded-2xl overflow-hidden bg-neutral-900">
+        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg" 
              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-60 transition-all"></div>
+        <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-20 p-4 rounded-full text-3xl text-white group-hover:bg-opacity-40 transition-all duration-300">
+          ▶
+        </button>
         <div class="absolute bottom-0 p-4">
-          <h3 class="text-lg font-semibold">Laptops</h3>
-          <p class="text-sm text-gray-300">PLAYLIST — 20 VIDEOS</p>
+          <h3 class="text-lg font-semibold">My top 5 favorite Apple devices</h3>
+          <div class="text-sm text-gray-400 flex items-center space-x-4 mt-1">
+            <span>⏱ 10 MIN</span>
+            <span>📅 1/9/2022</span>
+          </div>
         </div>
       </div>
 
-      <div class="min-w-[250px] md:min-w-[280px] flex-shrink-0 rounded-2xl overflow-hidden relative group bg-neutral-900">
-        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba0b5b3146f983b551427_image-8-video-x-template.jpg"
+      <!-- More repeats -->
+      <div class="group relative rounded-2xl overflow-hidden bg-neutral-900">
+        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba0b5b3146f983b551427_image-8-video-x-template.jpg" 
              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-60 transition-all"></div>
+        <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-20 p-4 rounded-full text-3xl text-white group-hover:bg-opacity-40 transition-all duration-300">
+          ▶
+        </button>
         <div class="absolute bottom-0 p-4">
-          <h3 class="text-lg font-semibold">Home Gadgets</h3>
-          <p class="text-sm text-gray-300">PLAYLIST — 8 VIDEOS</p>
+          <h3 class="text-lg font-semibold">The world’s best 8K monitor</h3>
+          <div class="text-sm text-gray-400 flex items-center space-x-4 mt-1">
+            <span>⏱ 12 MIN</span>
+            <span>📅 1/9/2022</span>
+          </div>
         </div>
       </div>
 
-      <div class="min-w-[250px] md:min-w-[280px] flex-shrink-0 rounded-2xl overflow-hidden relative group bg-neutral-900">
-        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg"
+      <div class="group relative rounded-2xl overflow-hidden bg-neutral-900">
+        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg" 
              class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-60 transition-all"></div>
+        <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-20 p-4 rounded-full text-3xl text-white group-hover:bg-opacity-40 transition-all duration-300">
+          ▶
+        </button>
         <div class="absolute bottom-0 p-4">
-          <h3 class="text-lg font-semibold">Headphones</h3>
-          <p class="text-sm text-gray-300">PLAYLIST — 12 VIDEOS</p>
+          <h3 class="text-lg font-semibold">My favorite 5 home gadgets</h3>
+          <div class="text-sm text-gray-400 flex items-center space-x-4 mt-1">
+            <span>⏱ 15 MIN</span>
+            <span>📅 1/9/2022</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="group relative rounded-2xl overflow-hidden bg-neutral-900">
+        <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba0b5b3146f983b551427_image-8-video-x-template.jpg" 
+             class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-60 transition-all"></div>
+        <button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-20 p-4 rounded-full text-3xl text-white group-hover:bg-opacity-40 transition-all duration-300">
+          ▶
+        </button>
+        <div class="absolute bottom-0 p-4">
+          <h3 class="text-lg font-semibold">iPhone 12: The ultimate review</h3>
+          <div class="text-sm text-gray-400 flex items-center space-x-4 mt-1">
+            <span>⏱ 7 MIN</span>
+            <span>📅 1/9/2022</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+    <!-- Cinematic Line -->
+    <div class="flex justify-center">
+    <div id="cinematic-line" class="border-b-2 border-white border-opacity-35 max-w-5xl w-full scale-x-0 origin-center"></div>
+    </div>
+    
 
+    
+    <section class="popular-playlists  py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-semibold">Popular playlists</h2>
+        <div class="flex space-x-3">
+            <button id="prevBtn" class="p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 transition">
+            <span>&larr;</span>
+            </button>
+            <button id="nextBtn" class="p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 transition">
+            <span>&rarr;</span>
+            </button>
+        </div>
+        </div>
+
+        <div id="scrollContainer" class="flex space-x-6 overflow-x-auto scroll-smooth no-scrollbar">
+        <!-- Card -->
+        <div class="min-w-[250px] md:min-w-[280px] flex-shrink-0 rounded-2xl overflow-hidden relative group bg-neutral-900">
+            <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg"
+                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all"></div>
+            <div class="absolute bottom-0 p-4">
+            <h3 class="text-lg font-semibold">Smartphones</h3>
+            <p class="text-sm text-gray-300">PLAYLIST — 24 VIDEOS</p>
+            </div>
+        </div>
+
+        <!-- Repeat -->
+        <div class="min-w-[250px] md:min-w-[280px] flex-shrink-0 rounded-2xl overflow-hidden relative group bg-neutral-900">
+            <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba0b5b3146f983b551427_image-8-video-x-template.jpg"
+                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all"></div>
+            <div class="absolute bottom-0 p-4">
+            <h3 class="text-lg font-semibold">Tablets</h3>
+            <p class="text-sm text-gray-300">PLAYLIST — 8 VIDEOS</p>
+            </div>
+        </div>
+
+        <!-- More copies -->
+        <div class="min-w-[250px] md:min-w-[280px] flex-shrink-0 rounded-2xl overflow-hidden relative group bg-neutral-900">
+            <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg"
+                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all"></div>
+            <div class="absolute bottom-0 p-4">
+            <h3 class="text-lg font-semibold">Laptops</h3>
+            <p class="text-sm text-gray-300">PLAYLIST — 20 VIDEOS</p>
+            </div>
+        </div>
+
+        <div class="min-w-[250px] md:min-w-[280px] flex-shrink-0 rounded-2xl overflow-hidden relative group bg-neutral-900">
+            <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba0b5b3146f983b551427_image-8-video-x-template.jpg"
+                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all"></div>
+            <div class="absolute bottom-0 p-4">
+            <h3 class="text-lg font-semibold">Home Gadgets</h3>
+            <p class="text-sm text-gray-300">PLAYLIST — 8 VIDEOS</p>
+            </div>
+        </div>
+
+        <div class="min-w-[250px] md:min-w-[280px] flex-shrink-0 rounded-2xl overflow-hidden relative group bg-neutral-900">
+            <img src="https://cdn.prod.website-files.com/613b673e41733106f1551871/613ba083cc430ef6c2de4c99_image-7-video-x-template.jpg"
+                class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all"></div>
+            <div class="absolute bottom-0 p-4">
+            <h3 class="text-lg font-semibold">Headphones</h3>
+            <p class="text-sm text-gray-300">PLAYLIST — 12 VIDEOS</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+    <!-- Cinematic Line -->
+    <div class="flex justify-center">
+    <div id="cinematic-line" class="border-b-2 border-white border-opacity-35 max-w-5xl w-full scale-x-0 origin-center"></div>
+    </div>
     
   </main>
 
